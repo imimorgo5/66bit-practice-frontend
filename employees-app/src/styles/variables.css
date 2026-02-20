@@ -1,0 +1,16 @@
+:root {
+  --bg-color: #FFFFFF;
+  --primary-color: #155DA4;
+  --text-color: #292929;
+  --hover-bg-color: #F2F2F2;
+  --breadcrumb-color: #B0B0B0;
+  --transition-duration: 0.5s;
+}
+
+[data-theme='dark'] {
+  --bg-color: #292929;
+  --primary-color: #155DA4;
+  --text-color: #F5F5F5;
+  --hover-bg-color: #3E3E3E;
+  --breadcrumb-color: #B0B0B0;
+}

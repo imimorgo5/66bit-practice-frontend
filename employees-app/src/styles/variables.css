@@ -4,6 +4,7 @@
   --text-color: #292929;
   --hover-bg-color: #F2F2F2;
   --breadcrumb-color: #B0B0B0;
+  --theme-toggle-thumb-color: #FFFFFF;
   --transition-duration: 0.5s;
 }
 
@@ -13,4 +14,5 @@
   --text-color: #F5F5F5;
   --hover-bg-color: #3E3E3E;
   --breadcrumb-color: #B0B0B0;
+  --theme-toggle-thumb-color: #FFFFFF;
 }

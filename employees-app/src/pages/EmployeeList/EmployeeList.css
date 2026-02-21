@@ -1,0 +1,25 @@
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 24px;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.breadcrumbs {
+  color: var(--breadcrumb-color);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+  }
+}

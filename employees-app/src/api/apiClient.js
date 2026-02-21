@@ -1,3 +1,5 @@
+const BASE_URL = 'https://frontend-test-api.stk8s.66bit.ru';
+
 const cleanParams = (params) => {
   const cleaned = {};
   for (const key in params) {
@@ -32,7 +34,7 @@ const buildQueryString = (params) => {
 
 export const fetchEmployeesRequest = async (params) => {
   const queryString = buildQueryString(params);
-  const response = await fetch(`/api/Employee${queryString}`);
+  const response = await fetch(`${BASE_URL}/api/Employee${queryString}`);
   
   if (!response.ok) {
     throw new Error('Network response was not ok');
@@ -42,7 +44,7 @@ export const fetchEmployeesRequest = async (params) => {
 };
 
 export const fetchEmployeeByIdRequest = async (id) => {
-  const response = await fetch(`/api/Employee/${id}`);
+  const response = await fetch(`${BASE_URL}/api/Employee/${id}`);
   
   if (!response.ok) {
     throw new Error('Employee not found');

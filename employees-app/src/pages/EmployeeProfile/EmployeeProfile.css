@@ -1,0 +1,135 @@
+.profile-header-card {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--hover-bg-color);
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: var(--breadcrumb-color);
+  opacity: 0.2;
+}
+
+.profile-title-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-title-info h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.profile-position {
+  font-size: 18px;
+  color: var(--breadcrumb-color);
+  margin-bottom: auto;
+}
+
+.profile-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-badge {
+  background-color: var(--hover-bg-color);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.profile-details {
+  margin-top: 32px;
+}
+
+.profile-details h3 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.details-row {
+  display: flex;
+  gap: 24px;
+}
+
+.details-label {
+  color: var(--breadcrumb-color);
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.details-value {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin-top: 64px;
+}
+
+.error-message a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .profile-header-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .details-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .details-label {
+    width: 100%;
+  }
+}

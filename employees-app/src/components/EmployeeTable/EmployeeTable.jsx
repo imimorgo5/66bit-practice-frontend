@@ -9,31 +9,24 @@ export const EmployeeTable = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { list, status, hasMore, error } = useSelector((state) => state.employees);
-  const filters = useSelector((state) => state.filters);
+  const appliedFilters = useSelector((state) => state.filters.applied);
   const observer = useRef();
   const pageRef = useRef(1);
 
   useEffect(() => {
-    const initFetch = () => {
-      pageRef.current = 1;
-      dispatch(resetEmployeesList());
-      dispatch(fetchEmployees({ ...filters, Page: 1, Count: 20 }));
-    };
-    initFetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+    dispatch(fetchEmployees({ ...appliedFilters, Page: 1, Count: 20 }));
 
-  useEffect(() => {
     return () => {
       dispatch(resetEmployeesList());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   const loadMore = useCallback(() => {
     if (status === 'loading' || !hasMore) return;
     pageRef.current += 1;
-    dispatch(fetchEmployees({ ...filters, Page: pageRef.current, Count: 20 }));
-  }, [status, hasMore, filters, dispatch]);
+    dispatch(fetchEmployees({ ...appliedFilters, Page: pageRef.current, Count: 20 }));
+  }, [status, hasMore, appliedFilters, dispatch]);
 
   const lastElementRef = useCallback(
     (node) => {
@@ -44,7 +37,7 @@ export const EmployeeTable = () => {
         if (entries[0].isIntersecting && hasMore) {
           loadMore();
         }
-      }, { threshold: 1.0 });
+      }, { threshold: 0.5 });
 
       if (node) observer.current.observe(node);
     },
@@ -56,13 +49,6 @@ export const EmployeeTable = () => {
       pageRef.current = 1;
     }
   }, [list.length]);
-
-  useEffect(() => {
-    if (list.length === 0 && status === 'idle') {
-      pageRef.current = 1;
-      dispatch(fetchEmployees({ ...filters, Page: 1, Count: 20 }));
-    }
-  }, [dispatch, filters, list.length, status]);
 
   if (error) {
     return <div className="table-message error">Ошибка загрузки: {error}</div>;

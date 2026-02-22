@@ -18,28 +18,33 @@ const getInitialFilters = () => {
   };
 };
 
+const initialFilters = getInitialFilters();
+
 const filtersSlice = createSlice({
   name: 'filters',
-  initialState: getInitialFilters(),
+  initialState: {
+    draft: initialFilters,
+    applied: initialFilters,
+  },
   reducers: {
-    setFilters: (state, action) => {
-      return { ...state, ...action.payload };
-    },
     updateFilterArray: (state, action) => {
       const { filterName, value } = action.payload;
-      const index = state[filterName].indexOf(value);
-      if (index === -1) state[filterName].push(value);
-      else state[filterName].splice(index, 1);
+      const index = state.draft[filterName].indexOf(value);
+      if (index === -1) state.draft[filterName].push(value);
+      else state.draft[filterName].splice(index, 1);
     },
     removeFilterItem: (state, action) => {
       const { filterName, value } = action.payload;
-      state[filterName] = state[filterName].filter(item => item !== value);
+      state.draft[filterName] = state.draft[filterName].filter(item => item !== value);
     },
     setNameSearch: (state, action) => {
-      state.Name = action.payload;
+      state.draft.Name = action.payload;
+    },
+    applyFilters: (state) => {
+      state.applied = { ...state.draft };
     },
   },
 });
 
-export const { setFilters, updateFilterArray, removeFilterItem, setNameSearch } = filtersSlice.actions;
+export const { updateFilterArray, removeFilterItem, setNameSearch, applyFilters } = filtersSlice.actions;
 export default filtersSlice.reducer;

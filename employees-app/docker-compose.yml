@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: .
+    image: employees-app-frontend:latest
+    container_name: employees_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"

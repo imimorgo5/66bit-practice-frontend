@@ -5,6 +5,7 @@
   --hover-bg-color: #F2F2F2;
   --breadcrumb-color: #B0B0B0;
   --theme-toggle-thumb-color: #FFFFFF;
+  --header-shadow: 0px 4px 8px 0px rgba(57, 113, 164, 0.25);
   --transition-duration: 0.5s;
 }
 
@@ -14,5 +15,6 @@
   --text-color: #F5F5F5;
   --hover-bg-color: #3E3E3E;
   --breadcrumb-color: #B0B0B0;
+  --header-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
   --theme-toggle-thumb-color: #FFFFFF;
 }

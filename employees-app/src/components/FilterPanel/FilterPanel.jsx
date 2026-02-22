@@ -7,7 +7,7 @@ import './FilterPanel.css';
 
 export const FilterPanel = () => {
   const dispatch = useDispatch();
-  const filters = useSelector((state) => state.filters);
+  const filters = useSelector((state) => state.filters.draft);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   return (

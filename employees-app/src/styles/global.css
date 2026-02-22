@@ -9,7 +9,10 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: sans-serif;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
   min-height: 100vh;
 }

@@ -1,18 +1,20 @@
 .filter-panel-container {
+  max-width: 1920px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-template-areas: 
+  grid-template-areas:
     "title dropdowns"
     "search search";
-  gap: 24px;
+  gap: 28px;
   align-items: center;
-  margin-bottom: 24px;
+  padding: 16px 180px 28px 180px;
 }
 
 .filter-panel-title {
   grid-area: title;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 40px;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -28,29 +30,56 @@
 
 .search-input {
   width: 100%;
-  padding: 12px 16px;
-  border: 1px solid var(--breadcrumb-color);
-  border-radius: 4px;
+  padding: 10px;
+  border: 0.5px solid var(--breadcrumb-color);
+  border-radius: 5px;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-size: 16px;
+  font-size: 20px;
   outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--breadcrumb-color);
 }
 
 .search-input:focus {
   border-color: var(--primary-color);
 }
 
+@media (max-width: 1100px) {
+  .filter-panel-container {
+    padding: 16px 80px 28px 80px;
+  }
+}
+
+@media (max-width: 900px) {
+  .filter-panel-container {
+    padding: 16px 40px 28px 40px;
+  }
+}
+
 @media (max-width: 768px) {
   .filter-panel-container {
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    grid-template-areas:
       "title"
       "search"
       "dropdowns";
-    gap: 16px;
+    gap: 12px;
+    padding: 16px 24px;
   }
-  
+
+  .filter-panel-title {
+    font-size: 20px;
+    letter-spacing: 2%;
+    margin-bottom: 4px;
+  }
+
+  .search-input {
+    font-size: 12px;
+  }
+
   .filter-panel-dropdowns {
     width: 100%;
     justify-content: space-between;
